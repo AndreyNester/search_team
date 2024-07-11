@@ -2,9 +2,15 @@ import { useEffect, useState, type ReactNode } from 'react';
 import { useUsers } from '../../entities/users/api/hooks/queries/useUsers';
 import { useUser } from '../../entities/users/api/hooks/queries/useUser';
 import type { IHomePageProps } from './types';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { signIn } from '../../features/user/userSlice';
 
 export const HomePage = (props: IHomePageProps): ReactNode => {
 	const [page, setPage] = useState<number>(1);
+
+	const dispatch = useAppDispatch();
+	const user = useAppSelector(store => store.user);
+	console.log(user);
 
 	const {
 		isPending: isPending_users,
@@ -60,6 +66,9 @@ export const HomePage = (props: IHomePageProps): ReactNode => {
 				Next Page
 			</button>
 			{isFetching_users ? <span> Loading...</span> : null}{' '}
+			<button onClick={() => dispatch(signIn({ email: 'nester', id: 4, token: '123456' }))}>
+				sign in
+			</button>
 		</div>
 	);
 };
