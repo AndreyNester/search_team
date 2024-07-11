@@ -1,8 +1,9 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { useUsers } from '../../entities/users/api/hooks/queries/useUsers';
 import { useUser } from '../../entities/users/api/hooks/queries/useUser';
+import type { IHomePageProps } from './types';
 
-export const MainPage = (): ReactNode => {
+export const HomePage = (props: IHomePageProps): ReactNode => {
 	const [page, setPage] = useState<number>(1);
 
 	const {
@@ -31,7 +32,7 @@ export const MainPage = (): ReactNode => {
 	}, [data_user]);
 
 	return (
-		<div>
+		<div {...props}>
 			{isPending_users ? (
 				<div>Loading...</div>
 			) : isError_users ? (
