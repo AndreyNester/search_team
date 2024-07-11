@@ -1,6 +1,7 @@
 @import url(./app/styles/config/resetStyles.css);
 
-body, html {
-  width: 100%;
-  min-height: 100vh;
+body,
+html {
+	width: 100%;
+	min-height: 100vh;
 }
