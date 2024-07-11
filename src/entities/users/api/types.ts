@@ -1,6 +1,6 @@
 import { z } from 'zod';
 export type GetUsersResponse = z.infer<typeof $GetUsersResponse>;
-export type GetUsersRequset = z.infer<typeof $GetUsersRequset>;
+export type GetUsersRequest = z.infer<typeof $GetUsersRequest>;
 export type GetUserResponse = z.infer<typeof $GetUserResponse>;
 export type GetUserRequest = z.infer<typeof $GetUserRequest>;
 
@@ -31,7 +31,7 @@ export const $GetUserResponse = z.object({
 export const $GetUserRequest = z.object({
 	id: z.number(),
 });
-export const $GetUsersRequset = z.object({
+export const $GetUsersRequest = z.object({
 	page: z.number().optional(),
 	per_page: z.number().optional(),
 });

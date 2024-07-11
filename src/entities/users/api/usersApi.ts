@@ -1,9 +1,9 @@
-import type { GetUsersResponse, GetUsersRequset, GetUserRequest, GetUserResponse } from './types';
+import type { GetUsersResponse, GetUsersRequest, GetUserRequest, GetUserResponse } from './types';
 import { BaseApi } from '../../../shared/axios/baseApi';
 import { $GetUsersResponse, $GetUserResponse } from './types';
 
 class UsersApi extends BaseApi {
-	async getUsers(params: GetUsersRequset): Promise<GetUsersResponse> {
+	async getUsers(params: GetUsersRequest): Promise<GetUsersResponse> {
 		const response = (await this.instance.get('users', { params })).data;
 		return $GetUsersResponse.parse(response);
 	}
