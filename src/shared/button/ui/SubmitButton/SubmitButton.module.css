@@ -1,0 +1,13 @@
+.defaultStyles {
+  width: 100%;
+  height: 48px;
+  background-color: #512689;
+  font-size: 18px;
+  color: #FFFFFF;
+  border-radius: 8px;
+  transition-duration: 0.1s;
+}
+
+.defaultStyles:focus, .defaultStyles:hover{
+  background-color: #311753;
+}

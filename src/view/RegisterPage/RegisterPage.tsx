@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import type { IRegsiterProps } from './types';
 import { Link } from 'react-router-dom';
 import { authApi } from '../../entities/auth/api/authApi';
+import { SignUpForm } from '../../features/auth/ui/form/SignUpForm/SignUpForm';
 
 export const RegisterPage = (props: IRegsiterProps): ReactNode => {
 	const signUpHandler = async ({
@@ -18,9 +19,7 @@ export const RegisterPage = (props: IRegsiterProps): ReactNode => {
 	return (
 		<div {...props}>
 			<h3>RegisterPage</h3>
-			<button onClick={() => signUpHandler({ email: 'nester@mail.ru', password: '123456' })}>
-				sign Up
-			</button>
+			<SignUpForm />
 			<Link to="/register" />
 		</div>
 	);

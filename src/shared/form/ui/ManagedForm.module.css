@@ -17,10 +17,10 @@
 }
 
 .container form label {
-  width: 100%;
+  width: 100%; 
 }
 
 .container form label input {
-  border: 1px solid black;
-  width: 100%;
+  /* border: 1px solid black;
+  width: 100%; */
 }

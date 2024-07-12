@@ -1,0 +1,13 @@
+.defaultStyle{
+  width: 100%;
+  height: 48px;
+  border-radius: 8px;
+  padding: 0 16px;
+  color: #808185;
+  font-size: 14px;
+  background-color: #F8F8F8;
+}
+
+.error{
+  border: 1px solid red;
+}
