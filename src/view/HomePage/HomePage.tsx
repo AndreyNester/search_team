@@ -4,6 +4,7 @@ import { useUser } from '../../entities/users/api/hooks/queries/useUser';
 import type { IHomePageProps } from './types';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { signIn } from '../../features/user/userSlice';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
 export const HomePage = (props: IHomePageProps): ReactNode => {
 	const [page, setPage] = useState<number>(1);

@@ -5,6 +5,7 @@ import App from './App';
 import { store } from './app/store';
 import './index.css';
 import { QueryClientProvider } from './app/tanstackQuery/config/QueryClientProvider';
+import './app/firebase/config/firebase';
 
 const container = document.getElementById('root');
 
