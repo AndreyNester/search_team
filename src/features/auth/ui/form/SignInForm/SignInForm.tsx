@@ -12,17 +12,25 @@ import { useAppDispatch } from '../../../../../app/hooks';
 import { signIn } from '../../../../user/userSlice';
 import { z } from 'zod';
 import { toFormikValidationSchema } from 'zod-formik-adapter';
+import cn from 'classnames';
+import { useNavigate } from 'react-router-dom';
 
-export const SignInForm = (props: ISignInFormProps): ReactNode => {
+export const SignInForm = ({ className, ...props }: ISignInFormProps): ReactNode => {
 	const dispatch = useAppDispatch();
+	const navigate = useNavigate();
 
 	const $ValidationSchema = z.object({
 		email: z.string({ required_error: 'required' }).email({ message: 'it must be email' }),
 		password: z.string({ required_error: 'required' }),
 	});
 
+	const classnameForForm = cn({
+		[styles.container]: true,
+		[String(className)]: className,
+	});
+
 	return (
-		<div {...props} className={styles.container}>
+		<div {...props} className={classnameForForm}>
 			<ManagedForm<Values>
 				validationSchema={toFormikValidationSchema($ValidationSchema)}
 				initialValues={{
@@ -38,6 +46,7 @@ export const SignInForm = (props: ISignInFormProps): ReactNode => {
 						setStatus('success');
 						dispatch(signIn({ email: userEmail, id: uid, token: accessToken }));
 						console.log(values);
+						navigate('/');
 					} catch (err) {
 						setStatus('failed');
 					}

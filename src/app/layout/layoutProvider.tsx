@@ -5,11 +5,12 @@ import { useAppSelector } from '../hooks';
 
 export const LayoutProvider = ({ children, ...props }: ILayoutProvider): ReactNode => {
 	const auth = useAppSelector(store => store.user);
+
 	return (
 		<div className={styles.wrapper} {...props}>
-			<header>{auth.email ? auth.email : 'not authorized '}</header>
+			{auth.email && <header>{auth.email}</header>}
 			<main className={styles.main}>{children}</main>
-			<footer>footer</footer>
+			{auth.email && <footer>footer</footer>}
 		</div>
 	);
 };
