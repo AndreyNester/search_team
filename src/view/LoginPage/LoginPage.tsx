@@ -1,33 +1,36 @@
-import { useEffect, useState, type ReactNode } from 'react';
+import type { SignInRequest } from '../../entities/auth/api/types';
 import type { ILoginPageProps } from './types';
+import type { IBaseAuthStructure } from '../../features/user/types';
+import { useEffect, useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { authApi } from '../../entities/auth/api/authApi';
 import { useSignIn } from '../../entities/auth/api/hooks/queries/useSignIn';
+import { useAppDispatch } from '../../app/hooks';
+import { signIn } from '../../features/user/userSlice';
 
 export const LoginPage = (props: ILoginPageProps): ReactNode => {
-	const [credentials, setCredentials] = useState<{ email: string; password: string }>({
+	const [credentials, setCredentials] = useState<SignInRequest>({
 		email: '',
 		password: '',
 	});
+	const dispatch = useAppDispatch();
+
+	const successLogIn = ({ email, id, token }: IBaseAuthStructure): void => {
+		dispatch(signIn({ email, id, token }));
+	};
 
 	const { data, error, refetch } = useSignIn({
 		email: credentials.email,
 		password: credentials.password,
 	});
 
-	const signInhandler = async ({
-		email,
-		password,
-	}: {
-		email: string;
-		password: string;
-	}): Promise<void> => {
-		const result = await authApi.signInByEmailAndPassword({ email, password });
-		console.log('result -->', result);
-	};
-
 	useEffect(() => {
-		console.log(data);
+		/*
+Эффект для прокидывания реквизитов в глобальное хранилище
+*/
+		if (data && !error) {
+			const { uid, accessToken, email } = data.user;
+			successLogIn({ email, id: uid, token: accessToken });
+		}
 	}, [data]);
 
 	return (
@@ -56,7 +59,7 @@ export const LoginPage = (props: ILoginPageProps): ReactNode => {
 			</form>
 
 			<button onClick={() => refetch()}>Sign In</button>
-			<Link to="/register" />
+			<Link to="/register">to register</Link>
 		</div>
 	);
 };

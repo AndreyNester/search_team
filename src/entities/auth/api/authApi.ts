@@ -5,7 +5,8 @@ import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } f
 class AuthApi extends BaseApi {
 	async signInByEmailAndPassword({ email, password }: SignInRequest): Promise<ISignInResponse> {
 		const auth = getAuth();
-		const response = await signInWithEmailAndPassword(auth, email, password);
+		//вынужден кастить из-за ошибки в ts
+		const response = (await signInWithEmailAndPassword(auth, email, password)) as ISignInResponse;
 		return response;
 	}
 
