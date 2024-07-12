@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { useSignIn } from '../../entities/auth/api/hooks/queries/useSignIn';
 import { useAppDispatch } from '../../app/hooks';
 import { signIn } from '../../features/user/userSlice';
+import { SignInForm } from '../../features/auth/ui/form/SignInForm/SignInForm';
 
 export const LoginPage = (props: ILoginPageProps): ReactNode => {
 	const [credentials, setCredentials] = useState<SignInRequest>({
@@ -37,28 +38,7 @@ export const LoginPage = (props: ILoginPageProps): ReactNode => {
 		<div {...props}>
 			<h3>login page</h3>
 
-			<form>
-				<label htmlFor="login">
-					<input
-						type="text"
-						id="login"
-						value={credentials.email}
-						onChange={e => setCredentials(prevState => ({ ...prevState, email: e.target.value }))}
-					/>
-				</label>
-				<label htmlFor="password">
-					<input
-						type="password"
-						id="password"
-						value={credentials.password}
-						onChange={e =>
-							setCredentials(prevState => ({ ...prevState, password: e.target.value }))
-						}
-					/>
-				</label>
-			</form>
-
-			<button onClick={() => refetch()}>Sign In</button>
+			<SignInForm />
 			<Link to="/register">to register</Link>
 		</div>
 	);

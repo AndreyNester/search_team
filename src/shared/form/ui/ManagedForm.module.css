@@ -1,0 +1,26 @@
+.container{
+  margin: 0 auto;
+  padding: 16px;
+  width: 100%;
+  max-width: 500px;
+  min-height: 100px;
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0px 0px 10px 0px #F8F8F8;
+}
+
+.container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+  align-items: center;
+}
+
+.container form label {
+  width: 100%;
+}
+
+.container form label input {
+  border: 1px solid black;
+  width: 100%;
+}
