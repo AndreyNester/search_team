@@ -11,3 +11,12 @@
 .defaultStyles:focus, .defaultStyles:hover{
   background-color: #311753;
 }
+
+
+.disabled{
+  background-color: rgb(148, 182, 211);
+}
+.disabled:hover, .disabled:focus {
+  transition-duration: none;
+  background-color: rgb(148, 182, 211);
+}
