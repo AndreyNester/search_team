@@ -1,0 +1,39 @@
+.container{
+  max-width: 846px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 35px;
+  padding: 32px 16px;
+}
+
+.description{
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.info{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.info>div{
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+@media (min-width: 767.98px) {
+  .container{
+    flex-direction: row;
+  }
+  .info{
+    min-width: 246px;
+  }
+
+  .description{
+    flex-grow: 1;
+  }
+
+}

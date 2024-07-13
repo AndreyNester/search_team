@@ -38,6 +38,7 @@
   .headerContainer{
     min-height: 0px;
     flex-direction: row-reverse;
+
     justify-content: left;
   }
   .headerTitle{

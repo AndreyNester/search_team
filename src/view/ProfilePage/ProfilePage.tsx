@@ -5,6 +5,7 @@ import { HeaderInfo } from '../../shared/header/ui/HeaderInfo/HeaderInfo';
 import { NotFoundPage } from '../NotFoundPage/NotFoundPage';
 import styles from './ProfilePage.module.css';
 import { useUser } from '../../entities/users/api/hooks/queries/useUser';
+import { UserInfo } from '../../features/card/ui/UserInfo/UserInfo';
 
 export const ProfilePage = (props: IProfilePageProps): ReactNode => {
 	const { id } = useParams<{ id: string }>();
@@ -58,7 +59,7 @@ export const ProfilePage = (props: IProfilePageProps): ReactNode => {
 					<div>no content on server</div>
 				) : (
 					// <CardsField data={data_user} />
-					<div>info</div>
+					<UserInfo data={data_user} />
 				)}
 			</div>
 		</section>
