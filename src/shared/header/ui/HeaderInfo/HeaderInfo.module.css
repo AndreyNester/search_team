@@ -1,0 +1,58 @@
+.header{
+  width: 100%;
+  min-height: 256px;
+  background-color: #512689;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+  color: #FFFFFF;
+}
+
+.headerPart{  
+  min-width: 16px;
+}
+
+.content {
+  flex-grow: 1;
+}
+
+.logOutIcon_mobile{
+  background-color: transparent;
+}
+
+.logOutIcon_desktop{
+  display: none;
+}
+.prevPageBtn_mobile{
+  background-color: transparent;
+}
+.prevPageBtn_desktop{
+  display: none;
+}
+
+
+@media (min-width: 767.98px) {
+
+.headerPart{
+  width: 160px;
+  
+}
+
+.logOutIcon_mobile{
+  display: none;
+}
+
+
+.logOutIcon_desktop{
+  display: inline;
+}
+
+.prevPageBtn_mobile {
+  display: none;
+}
+
+.prevPageBtn_desktop{
+  display: inline;
+}
+
+}

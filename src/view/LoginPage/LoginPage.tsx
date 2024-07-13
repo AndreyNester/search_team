@@ -5,8 +5,8 @@ import styles from './LoginPage.module.css';
 
 export const LoginPage = (props: ILoginPageProps): ReactNode => {
 	return (
-		<div {...props} className={styles.container}>
+		<section {...props} className={styles.container}>
 			<SignInForm className={styles.form} />
-		</div>
+		</section>
 	);
 };

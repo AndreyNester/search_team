@@ -1,0 +1,27 @@
+.headerContentWrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.headerTitle{
+  font-size: 36px;
+  text-align: center;
+  color: #F8F8F8;
+}
+.headerText{
+  font-size: 16px;
+  text-align: center;
+  line-height: 1.5em;
+}
+
+@media (min-width: 767.98px) {
+  .headerTitle{
+    font-size: 64px;
+  }
+  .headerText{
+    font-size: 20px;
+  }
+}
