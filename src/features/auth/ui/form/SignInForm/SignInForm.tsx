@@ -45,7 +45,6 @@ export const SignInForm = ({ className, ...props }: ISignInFormProps): ReactNode
 						} = await authApi.signInByEmailAndPassword({ email, password });
 						setStatus('success');
 						dispatch(signIn({ email: userEmail, id: uid, token: accessToken }));
-						console.log(values);
 						navigate('/');
 					} catch (err) {
 						setStatus('failed');

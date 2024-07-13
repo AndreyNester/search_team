@@ -10,7 +10,6 @@ export const UserInfo = ({ className, data, ...props }: IUserInfoProps): ReactNo
 		[styles.container]: true,
 		[String(className)]: className,
 	});
-	console.log(data);
 
 	return (
 		<div className={classnameForContainer} {...props}>

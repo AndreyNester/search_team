@@ -47,8 +47,6 @@ export const SignUpForm = (props: ISignUpFormProps): ReactNode => {
 					try {
 						await authApi.signUpByEmailAndPassword({ email, password });
 						setStatus('success');
-
-						console.log(values);
 					} catch (err) {
 						setStatus('failed');
 					}

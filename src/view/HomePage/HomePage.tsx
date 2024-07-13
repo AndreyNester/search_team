@@ -10,7 +10,6 @@ import { CardsField } from '../../features/card/ui/CardsField/CardsField';
 
 export const HomePage = (props: IHomePageProps): ReactNode => {
 	const user = useAppSelector(store => store.user);
-	console.log(user);
 
 	const {
 		isPending: isPending_users,

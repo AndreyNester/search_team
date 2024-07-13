@@ -15,20 +15,20 @@ const App = (): ReactNode => {
 	const router = createBrowserRouter([
 		{
 			path: '/',
-			element: auth.email ? <HomePage /> : /*<Navigate to="/login" />*/ <HomePage />,
+			element: auth.email ? <HomePage /> : <Navigate to="/login" />,
 			errorElement: <NotFoundPage />,
 		},
 		{
 			path: '/register',
-			element: !auth.email ? <RegisterPage /> : /*<Navigate to="/" />*/ <RegisterPage />,
+			element: !auth.email ? <RegisterPage /> : <Navigate to="/" />,
 		},
 		{
 			path: '/login',
-			element: !auth.email ? <LoginPage /> : /* <Navigate to="/" />*/ <LoginPage />,
+			element: !auth.email ? <LoginPage /> : <Navigate to="/" />,
 		},
 		{
 			path: '/profile/:id',
-			element: auth.email ? <ProfilePage /> : /*<Navigate to="/login" />*/ <ProfilePage />,
+			element: auth.email ? <ProfilePage /> : <Navigate to="/login" />,
 		},
 	]);
 
