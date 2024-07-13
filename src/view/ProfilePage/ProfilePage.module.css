@@ -1,5 +1,10 @@
 .headerContentWrapper{
   max-width: 846px;
+  position: relative;
+}
+
+.Container{
+  position: relative;
 }
 
 .headerContainer{
@@ -31,6 +36,12 @@
   border-radius: 50%;
   width: 187px;
   height: 187px;
+}
+.lodaer{
+  margin: 0 auto;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 17px);
 }
 
 @media (min-width: 767.98px) {

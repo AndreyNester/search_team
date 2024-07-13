@@ -8,6 +8,7 @@ import styles from './HomePage.module.css';
 import { CardsField } from '../../features/card/ui/CardsField/CardsField';
 import arrowIcon from '../../shared/styles/icons/arrowIcon.svg';
 import cn from 'classnames';
+import { ClipLoader } from 'react-spinners';
 
 export const HomePage = (props: IHomePageProps): ReactNode => {
 	const [page, setPage] = useState<number>(1);
@@ -43,16 +44,20 @@ export const HomePage = (props: IHomePageProps): ReactNode => {
 					плечи, и умеющие находить выход из любых, даже самых сложных ситуаций.
 				</p>
 			</HeaderInfo>
+
 			<div className={styles.CardsFieldContainer}>
-				{isFetching_users ? (
-					<div>loading...</div>
-				) : error_users ? (
-					<div>something was wrong</div>
-				) : !data_users ? (
-					<div>no content on server</div>
-				) : (
-					<CardsField data={data_users} />
-				)}
+				<div className={styles.content}>
+					{isFetching_users ? (
+						<ClipLoader className={styles.lodaer} />
+					) : error_users ? (
+						<div>something was wrong</div>
+					) : !data_users ? (
+						<div>no content on server</div>
+					) : (
+						<CardsField data={data_users} />
+					)}
+				</div>
+
 				<div className={styles.paginationContainer}>
 					<button
 						className={classForArrowLeft}

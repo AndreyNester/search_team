@@ -6,6 +6,7 @@ import { NotFoundPage } from '../NotFoundPage/NotFoundPage';
 import styles from './ProfilePage.module.css';
 import { useUser } from '../../entities/users/api/hooks/queries/useUser';
 import { UserInfo } from '../../features/card/ui/UserInfo/UserInfo';
+import { ClipLoader } from 'react-spinners';
 
 export const ProfilePage = (props: IProfilePageProps): ReactNode => {
 	const { id } = useParams<{ id: string }>();
@@ -28,9 +29,9 @@ export const ProfilePage = (props: IProfilePageProps): ReactNode => {
 	return !Number.isNaN(Number(id)) ? (
 		<section {...props}>
 			<HeaderInfo classNameOfContentWrapper={styles.headerContentWrapper}>
-				<div className={styles.CardsFieldContainer}>
+				<div className={styles.Container}>
 					{isFetching_user ? (
-						<div>loading...</div>
+						<ClipLoader className={styles.lodaer} />
 					) : isError_user ? (
 						<div>something was wrong</div>
 					) : !data_user ? (
@@ -49,9 +50,9 @@ export const ProfilePage = (props: IProfilePageProps): ReactNode => {
 					)}
 				</div>
 			</HeaderInfo>
-			<div className={styles.CardsFieldContainer}>
+			<div className={styles.Container}>
 				{isFetching_user ? (
-					<div>loading...</div>
+					<ClipLoader className={styles.lodaer} />
 				) : isError_user ? (
 					<div>something was wrong</div>
 				) : !data_user ? (
