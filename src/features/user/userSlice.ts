@@ -7,6 +7,7 @@ const initialState: IInitialState = {
 	email: null,
 	token: null,
 	id: null,
+	liked: [],
 };
 
 export const userSlice = createSlice({
@@ -16,11 +17,17 @@ export const userSlice = createSlice({
 	reducers: create => ({
 		signIn: create.reducer((state, action: PayloadAction<IInitialState>) => {
 			//Вынужден кастить из-заа ошибки в ts
-			const { email, id, token } = action.payload as { email: string; id: string; token: string };
+			const { email, id, token, liked } = action.payload as {
+				email: string;
+				id: string;
+				token: string;
+				liked: number[];
+			};
 			state.email = email;
 			state.id = id;
 			state.token = token;
-			sessionAuthApi.setSession({ email, id, token });
+			state.liked = liked;
+			sessionAuthApi.setSession({ email, id, token, liked: [] });
 		}),
 		signOut: create.reducer(state => {
 			state.email = null;
@@ -28,9 +35,27 @@ export const userSlice = createSlice({
 			state.token = null;
 			sessionAuthApi.clear();
 		}),
+		onChangeLike: create.reducer((state, action: PayloadAction<number>) => {
+			if (state.liked.indexOf(action.payload) !== -1) {
+				const newArr: number[] = state.liked.filter(item => item !== action.payload);
+				state.liked = [...newArr];
+				const globState = sessionAuthApi.getSession();
+				if (globState) {
+					globState.liked = [...newArr];
+					sessionAuthApi.setSession({ ...globState });
+				}
+			} else {
+				state.liked.push(action.payload);
+				const globState = sessionAuthApi.getSession();
+				if (globState) {
+					globState.liked.push(action.payload);
+					sessionAuthApi.setSession({ ...globState });
+				}
+			}
+		}),
 	}),
 });
 
-export const { signIn, signOut } = userSlice.actions;
+export const { signIn, signOut, onChangeLike } = userSlice.actions;
 
 export default userSlice.reducer;

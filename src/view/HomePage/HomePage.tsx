@@ -1,9 +1,8 @@
-import { useEffect, useState, type ReactNode } from 'react';
-import { useUsers } from '../../entities/users/api/hooks/queries/useUsers';
-// import { useUser } from '../../entities/users/api/hooks/queries/useUser';
+import type { ReactNode } from 'react';
 import type { IHomePageProps } from './types';
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { signIn } from '../../features/user/userSlice';
+
+import { useState } from 'react';
+import { useUsers } from '../../entities/users/api/hooks/queries/useUsers';
 import { HeaderInfo } from '../../shared/header/ui/HeaderInfo/HeaderInfo';
 import styles from './HomePage.module.css';
 import { CardsField } from '../../features/card/ui/CardsField/CardsField';
@@ -24,8 +23,6 @@ export const HomePage = (props: IHomePageProps): ReactNode => {
 		page: page,
 		per_page: 4,
 	});
-
-	console.log(data_users);
 
 	const classForArrowLeft = cn({
 		[styles.arrow]: true,

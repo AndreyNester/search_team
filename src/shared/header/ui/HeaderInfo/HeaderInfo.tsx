@@ -52,10 +52,10 @@ export const HeaderInfo = ({
 
 			<div className={classnameForContent}>{children}</div>
 			<div className={styles.headerPart}>
-				<button className={styles.logOutIcon_mobile}>
+				<button className={styles.logOutIcon_mobile} onClick={(): any => dispatch(signOut())}>
 					<img src={logOutIcon} alt="log out icon" />
 				</button>
-				<Button className={styles.logOutIcon_desktop} onClick={() => dispatch(signOut())}>
+				<Button className={styles.logOutIcon_desktop} onClick={(): any => dispatch(signOut())}>
 					logOut
 				</Button>
 			</div>
