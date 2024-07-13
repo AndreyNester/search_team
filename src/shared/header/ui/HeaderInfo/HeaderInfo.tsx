@@ -7,7 +7,7 @@ import prevPageIcon from '../../../styles/icons/prevPageIcon.svg';
 import { Button } from '../../../button/ui/Button/Button';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../../app/hooks';
-import { signOut } from '../../../../features/user/userSlice';
+import { signOut } from '@src/features/user';
 
 export const HeaderInfo = ({
 	children,

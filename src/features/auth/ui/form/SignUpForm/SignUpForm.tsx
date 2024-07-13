@@ -3,13 +3,13 @@ import type { ISignUpFormProps, Values } from './types';
 import type { FormikHelpers } from 'formik';
 
 import { Form } from 'formik';
-import { ManagedForm } from '@src/shared/form/ui/ManagedForm';
-import { TextInput } from '@src/shared/input/TextInput/TextInput';
-import { PasswordInput } from '@src/shared/input/PasswordInput/PasswordInput';
-import { SubmitButton } from '@src/shared/button/ui/SubmitButton/SubmitButton';
+import { ManagedForm } from '@src/shared/form';
+import { TextInput, PasswordInput } from '@src/shared/input';
+
+import { SubmitButton } from '@src/shared/button';
 import { z } from 'zod';
 import { toFormikValidationSchema } from 'zod-formik-adapter';
-import { authApi } from '@src/entities/auth/api/authApi';
+import { authApi } from '@src/entities/auth';
 
 import styles from './SignUpForm.module.css';
 

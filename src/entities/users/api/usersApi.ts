@@ -1,5 +1,5 @@
 import type { GetUsersResponse, GetUsersRequest, GetUserRequest, GetUserResponse } from './types';
-import { BaseApi } from '@src/shared/axios/baseApi';
+import { BaseApi } from '@src/shared/axios';
 import { $GetUsersResponse, $GetUserResponse } from './types';
 
 class UsersApi extends BaseApi {

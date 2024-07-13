@@ -2,7 +2,7 @@ import type { ReactNode, MouseEvent } from 'react';
 import type { ICardsFieldProps } from './types';
 import cn from 'classnames';
 import styles from './CardsField.module.css';
-import { Card } from '@src/shared/cards/ui/Card/Card';
+import { Card } from '@src/shared/cards';
 import { Link } from 'react-router-dom';
 import likeIcon from '@src/shared/styles/icons/likedIcon.svg';
 import unlikeIcon from '@src/shared/styles/icons/unlikedIcon.svg';
