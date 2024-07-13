@@ -22,6 +22,29 @@
   line-height: 1.5em;
 }
 
+.paginationContainer{
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.arrow{
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.arrow:disabled {
+  opacity: 0.5;
+  cursor: auto;
+}
+
+.arrow_left{
+  transform: rotate(90deg)
+}
+.arrow_right{
+  transform: rotate(-90deg)
+
+}
+
 @media (min-width: 767.98px) {
   .headerTitle{
     font-size: 64px;

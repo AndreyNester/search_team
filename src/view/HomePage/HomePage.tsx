@@ -7,9 +7,11 @@ import { signIn } from '../../features/user/userSlice';
 import { HeaderInfo } from '../../shared/header/ui/HeaderInfo/HeaderInfo';
 import styles from './HomePage.module.css';
 import { CardsField } from '../../features/card/ui/CardsField/CardsField';
+import arrowIcon from '../../shared/styles/icons/arrowIcon.svg';
+import cn from 'classnames';
 
 export const HomePage = (props: IHomePageProps): ReactNode => {
-	const user = useAppSelector(store => store.user);
+	const [page, setPage] = useState<number>(1);
 
 	const {
 		isPending: isPending_users,
@@ -19,8 +21,20 @@ export const HomePage = (props: IHomePageProps): ReactNode => {
 		isFetching: isFetching_users,
 		isPlaceholderData: isPlaceholderData_users,
 	} = useUsers({
-		page: 1,
-		per_page: 8,
+		page: page,
+		per_page: 4,
+	});
+
+	console.log(data_users);
+
+	const classForArrowLeft = cn({
+		[styles.arrow]: true,
+		[styles.arrow_left]: true,
+	});
+
+	const classForArrowRight = cn({
+		[styles.arrow]: true,
+		[styles.arrow_right]: true,
 	});
 
 	return (
@@ -42,6 +56,22 @@ export const HomePage = (props: IHomePageProps): ReactNode => {
 				) : (
 					<CardsField data={data_users} />
 				)}
+				<div className={styles.paginationContainer}>
+					<button
+						className={classForArrowLeft}
+						onClick={(): any => setPage(prevState => --prevState)}
+						disabled={page === 1}
+					>
+						<img src={arrowIcon} alt="arrow icon left" />
+					</button>
+					<button
+						className={classForArrowRight}
+						onClick={(): any => setPage(prevState => ++prevState)}
+						disabled={page === data_users?.total_pages}
+					>
+						<img src={arrowIcon} alt="arrow icon right" />
+					</button>
+				</div>
 			</div>
 		</section>
 	);
