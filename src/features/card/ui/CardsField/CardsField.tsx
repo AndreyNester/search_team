@@ -3,7 +3,6 @@ import type { ICardsFieldProps } from './types';
 import cn from 'classnames';
 import styles from './CardsField.module.css';
 import { Card } from '../../../../shared/cards/ui/Card/Card';
-import { useUsers } from '../../../../entities/users/api/hooks/queries/useUsers';
 import { Link } from 'react-router-dom';
 import likeIcon from '../../../../shared/styles/icons/likedIcon.svg';
 import unlikeIcon from '../../../../shared/styles/icons/unlikedIcon.svg';

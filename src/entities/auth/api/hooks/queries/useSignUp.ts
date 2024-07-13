@@ -1,6 +1,6 @@
 import type { UseQueryResult } from '@tanstack/react-query';
 import { useQuery } from '@tanstack/react-query';
-import type { SignInRequest, ISignInResponse, SignUpRequest, ISignUpResponse } from '../../types';
+import type { SignUpRequest, ISignUpResponse } from '../../types';
 import { authApi } from '../../authApi';
 
 export interface IUseSignUpProps extends SignUpRequest {}

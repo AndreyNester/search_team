@@ -14,12 +14,9 @@ export const HomePage = (props: IHomePageProps): ReactNode => {
 	const [page, setPage] = useState<number>(1);
 
 	const {
-		isPending: isPending_users,
-		isError: isError_users,
 		error: error_users,
 		data: data_users,
 		isFetching: isFetching_users,
-		isPlaceholderData: isPlaceholderData_users,
 	} = useUsers({
 		page: page,
 		per_page: 4,

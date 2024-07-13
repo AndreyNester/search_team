@@ -12,12 +12,9 @@ export const ProfilePage = (props: IProfilePageProps): ReactNode => {
 	const { id } = useParams<{ id: string }>();
 
 	const {
-		isPending: isPending_user,
 		isError: isError_user,
-		error: error_user,
 		data: data_user,
 		isFetching: isFetching_user,
-		isPlaceholderData: isPlaceholderData_user,
 	} = useUser({
 		id: Number(id),
 		/*
