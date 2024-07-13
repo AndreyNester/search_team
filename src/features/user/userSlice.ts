@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { IInitialState } from './types';
-import { sessionAuthApi } from '../../shared/localStorage/api/SessionAuthApi';
+import { sessionAuthApi } from '@src/shared/localStorage/api/SessionAuthApi';
 
 const initialState: IInitialState = {
 	email: null,

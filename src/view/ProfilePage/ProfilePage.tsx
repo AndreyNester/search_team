@@ -1,11 +1,11 @@
 import type { ReactNode } from 'react';
 import type { IProfilePageProps } from './types';
 import { useParams } from 'react-router-dom';
-import { HeaderInfo } from '../../shared/header/ui/HeaderInfo/HeaderInfo';
+import { HeaderInfo } from '@src/shared/header/ui/HeaderInfo/HeaderInfo';
 import { NotFoundPage } from '../NotFoundPage/NotFoundPage';
 import styles from './ProfilePage.module.css';
-import { useUser } from '../../entities/users/api/hooks/queries/useUser';
-import { UserInfo } from '../../features/card/ui/UserInfo/UserInfo';
+import { useUser } from '@src/entities/users/api/hooks/queries/useUser';
+import { UserInfo } from '@src/features/card/ui/UserInfo/UserInfo';
 import { ClipLoader } from 'react-spinners';
 
 export const ProfilePage = (props: IProfilePageProps): ReactNode => {

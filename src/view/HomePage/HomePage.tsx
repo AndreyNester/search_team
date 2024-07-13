@@ -2,11 +2,11 @@ import type { ReactNode } from 'react';
 import type { IHomePageProps } from './types';
 
 import { useState } from 'react';
-import { useUsers } from '../../entities/users/api/hooks/queries/useUsers';
-import { HeaderInfo } from '../../shared/header/ui/HeaderInfo/HeaderInfo';
+import { useUsers } from '@src/entities/users/api/hooks/queries/useUsers';
+import { HeaderInfo } from '@src/shared/header/ui/HeaderInfo/HeaderInfo';
 import styles from './HomePage.module.css';
-import { CardsField } from '../../features/card/ui/CardsField/CardsField';
-import arrowIcon from '../../shared/styles/icons/arrowIcon.svg';
+import { CardsField } from '@src/features/card/ui/CardsField/CardsField';
+import arrowIcon from '@src/shared/styles/icons/arrowIcon.svg';
 import cn from 'classnames';
 import { ClipLoader } from 'react-spinners';
 

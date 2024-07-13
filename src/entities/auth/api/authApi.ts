@@ -1,5 +1,5 @@
 import type { ISignInResponse, ISignUpResponse, SignInRequest, SignUpRequest } from './types';
-import { BaseApi } from '../../../shared/axios/baseApi';
+import { BaseApi } from '@src/shared/axios/baseApi';
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
 class AuthApi extends BaseApi {

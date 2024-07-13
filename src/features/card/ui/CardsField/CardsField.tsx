@@ -2,11 +2,11 @@ import type { ReactNode, MouseEvent } from 'react';
 import type { ICardsFieldProps } from './types';
 import cn from 'classnames';
 import styles from './CardsField.module.css';
-import { Card } from '../../../../shared/cards/ui/Card/Card';
+import { Card } from '@src/shared/cards/ui/Card/Card';
 import { Link } from 'react-router-dom';
-import likeIcon from '../../../../shared/styles/icons/likedIcon.svg';
-import unlikeIcon from '../../../../shared/styles/icons/unlikedIcon.svg';
-import { useAppDispatch, useAppSelector } from '../../../../app/hooks';
+import likeIcon from '@src/shared/styles/icons/likedIcon.svg';
+import unlikeIcon from '@src/shared/styles/icons/unlikedIcon.svg';
+import { useAppDispatch, useAppSelector } from '@src/app/hooks';
 import { onChangeLike } from '../../../user/userSlice';
 
 export const CardsField = ({ className, data, ...props }: ICardsFieldProps): ReactNode => {

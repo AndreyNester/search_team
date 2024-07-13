@@ -2,8 +2,8 @@ import type { ReactNode } from 'react';
 import type { IUserInfoProps } from './types';
 import styles from './UserInfo.module.css';
 import cn from 'classnames';
-import mobileIcon from '../../../../shared/styles/icons/mobileIcon.svg';
-import mailIcon from '../../../../shared/styles/icons/mailIcon.svg';
+import mobileIcon from '@src/shared/styles/icons/mobileIcon.svg';
+import mailIcon from '@src/shared/styles/icons/mailIcon.svg';
 
 export const UserInfo = ({ className, data, ...props }: IUserInfoProps): ReactNode => {
 	const classnameForContainer = cn({
