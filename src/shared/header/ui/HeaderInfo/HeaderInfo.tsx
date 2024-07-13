@@ -6,6 +6,8 @@ import logOutIcon from '../../../styles/icons/LogOutIcon.svg';
 import prevPageIcon from '../../../styles/icons/prevPageIcon.svg';
 import { Button } from '../../../button/ui/Button/Button';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '../../../../app/hooks';
+import { signOut } from '../../../../features/user/userSlice';
 
 export const HeaderInfo = ({
 	children,
@@ -13,6 +15,7 @@ export const HeaderInfo = ({
 	classNameOfContentWrapper,
 	...props
 }: IHeaderInfoProps): ReactNode => {
+	const dispatch = useAppDispatch();
 	const navigator = useNavigate();
 	const location = useLocation();
 	const classnameForHeaderInfo = cn({
@@ -52,7 +55,9 @@ export const HeaderInfo = ({
 				<button className={styles.logOutIcon_mobile}>
 					<img src={logOutIcon} alt="log out icon" />
 				</button>
-				<Button className={styles.logOutIcon_desktop}>logOut</Button>
+				<Button className={styles.logOutIcon_desktop} onClick={() => dispatch(signOut())}>
+					logOut
+				</Button>
 			</div>
 		</header>
 	);
