@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import type { IProfilePageProps } from './types';
 import { useParams } from 'react-router-dom';
 import { HeaderInfo } from '@src/shared/header';
@@ -9,6 +9,7 @@ import { UserInfo } from '@src/features/card';
 import { ClipLoader } from 'react-spinners';
 
 export const ProfilePage = (props: IProfilePageProps): ReactNode => {
+	const [isImageLoading, setIsImageLoading] = useState<boolean>(true);
 	const { id } = useParams<{ id: string }>();
 
 	const {
@@ -41,8 +42,15 @@ export const ProfilePage = (props: IProfilePageProps): ReactNode => {
 								</span>
 								<span className={styles.info}>Партнер</span>
 							</div>
-
-							<img src={data_user.data.avatar} alt="user icon" className={styles.image} />
+							{isImageLoading && <ClipLoader className={styles.loader} />}
+							<img
+								src={data_user.data.avatar}
+								alt="user icon"
+								className={styles.image}
+								onLoad={(): void => setIsImageLoading(false)}
+								onError={(): void => setIsImageLoading(false)}
+								style={{ display: isImageLoading ? 'none' : 'block' }}
+							/>
 						</div>
 					)}
 				</div>
