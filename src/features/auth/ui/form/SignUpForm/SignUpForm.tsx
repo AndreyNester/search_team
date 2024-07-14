@@ -12,8 +12,10 @@ import { toFormikValidationSchema } from 'zod-formik-adapter';
 import { authApi } from '@src/entities/auth';
 
 import styles from './SignUpForm.module.css';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const SignUpForm = (props: ISignUpFormProps): ReactNode => {
+	const navigate = useNavigate();
 	const $ValidationSchema = z
 		.object({
 			email: z
@@ -47,6 +49,7 @@ export const SignUpForm = (props: ISignUpFormProps): ReactNode => {
 					try {
 						await authApi.signUpByEmailAndPassword({ email, password });
 						setStatus('success');
+						navigate('/');
 					} catch (err) {
 						setStatus('failed');
 					}
@@ -55,6 +58,7 @@ export const SignUpForm = (props: ISignUpFormProps): ReactNode => {
 				{/* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */}
 				{({ errors, touched, status, isSubmitting }) => (
 					<Form>
+						<h2 className={styles.title}>Register</h2>
 						<label htmlFor="email">
 							<h4>Email</h4>
 							<TextInput
@@ -90,6 +94,7 @@ export const SignUpForm = (props: ISignUpFormProps): ReactNode => {
 						</label>
 						{status === 'failed' ? <div style={{ color: 'red' }}>{'Try another one'}</div> : null}
 						<SubmitButton disabled={isSubmitting}>Submit</SubmitButton>
+						<Link to="/login">already have an account ?</Link>
 					</Form>
 				)}
 			</ManagedForm>

@@ -12,7 +12,7 @@ import { signIn } from '../../../../user/userSlice';
 import { z } from 'zod';
 import { toFormikValidationSchema } from 'zod-formik-adapter';
 import cn from 'classnames';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const SignInForm = ({ className, ...props }: ISignInFormProps): ReactNode => {
 	const dispatch = useAppDispatch();
@@ -53,6 +53,7 @@ export const SignInForm = ({ className, ...props }: ISignInFormProps): ReactNode
 				{/* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */}
 				{({ errors, touched, status, isSubmitting }) => (
 					<Form>
+						<h2 className={styles.title}>Login</h2>
 						<label htmlFor="email">
 							<h4>Email</h4>
 							<TextInput
@@ -64,7 +65,6 @@ export const SignInForm = ({ className, ...props }: ISignInFormProps): ReactNode
 							/>
 							{errors.email && touched.email ? <div>{errors.email}</div> : null}
 						</label>
-
 						<label htmlFor="password">
 							<h4>Password</h4>
 							<PasswordInput
@@ -78,8 +78,8 @@ export const SignInForm = ({ className, ...props }: ISignInFormProps): ReactNode
 						{status === 'failed' ? (
 							<div style={{ color: 'red' }}>{'Invalid credentials'}</div>
 						) : null}
-
 						<SubmitButton disabled={isSubmitting}>Submit</SubmitButton>
+						<Link to="/register">do not have account ?</Link>
 					</Form>
 				)}
 			</ManagedForm>
