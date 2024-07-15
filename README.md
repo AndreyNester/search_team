@@ -21,3 +21,12 @@
 - Страница авторизации : _myDomain/login_
 - Страница регистрации : _myDomain/register_
 
+## Routs 
+- Vite
+- Typescript
+- Redux-toolkit
+- Axios
+- FireBase
+- Formik
+- React-router
+- Zod
